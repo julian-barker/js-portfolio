@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Julian Barker</title>
+</head>
+<body>
+    <header href="./">
+        <div class="logo"><img src="./images/logo.jpeg" alt="Logo"></div>
+        <ul class="nav">
+            <li><a href="./"><div>Link 1</div></a></li>
+            <li><a href="./"><div>Link 2</div></a></li>
+            <li><a href="./"><div>Link 3</div></a></li>
+            <li><a href="./"><div>Link 4</div></a></li>
+            <li><a href="./"><div>Link 5</div></a></li>
+        </ul>
+    </header>
+    <main>
+        <h1>BarkCodes</h1>
+        <div id="blurb">
+            <p>
+                Hi <span id="user"></span>, I'm Julian!
+            </p>
+            <p>
+                I'm a <em>junior software developer</em> who loves <em>building</em> on the web, <em>learning</em> about new tools and frameworks, and <em>expanding</em> my knowledge into other fields like cyber security, AI/ML, and blockchain / distributed ledger technologies.
+            </p>
+        </div>
+        <section class="content" id="bio">
+            <h3>About Me</h3>
+            <p>
+                I grew up in southwest Connecticut with my parents and brother. I was always interested in technology and science, but never broke into the self-taught coder life in my youth. After high school, I attended the United States Military Academy, through which I commissioned as an Infantry Officer in the US Army in 2016, also earning my Bachelors of Science in electrical engineering. I graduated the US Army Ranger School in 2017 and spent the following 5 years in various leadership roles that taught me a lot about leading teams of people, managing valuable resources, and budgeting the most precious commodity of all: <em>time</em>. I recently exited the military (2022) and am now following my dream of learning to code by attending the Code Fellows Software Development bootcamp.
+            </p>
+        </section>
+        <section class="content" id="portfolio">
+            <h3>My Projects / Work Experience</h3>
+            <ul id="project-list">
+                <li>You're looking at it! This is my first and only project, as of now. More to come!</li>
+                <li>I've also had 6 years of leadership experince in the military, to include some high-level human resources management</li>
+                <li>One summer, I was a camp counselor at my rock climbing camp. That's work experience, right?</li>
+            </ul>
+        </section>
+        <section class="content" id="hobbies">
+            <h3>What Do I Like to Do?</h3>
+            <p>
+                In my free time, I love to spend my time outside in the fresh air, and I'm especially passionate about the wilderness and maintaining the integrity of public lands. I love to hunt, fish, hike, camp, rock climb, surf, SCUBA dive, swim, and the list goes on.
+            </p>
+            <br>
+            <p>
+                That being said, I'm certainly not above sitting on the couch with a bowl of ice cream and watching some TV. I'm a big fan of anime, but I'll really watch anything except Grey's Anatomy. When it comes to realism, I draw the line at doctors being impaled by falling icicles at the hospital...
+            </p>
+        </section>
+        <section class="content">
+            <h3>Top 10s</h3>
+            <div id="top-10">
+                <section>
+                    <h4>Stories</h3>
+                        <p>At the end of the day, movies, TV shows, books, video games, and plays are all just different vehicles to tell stories. 
+                            Below are my top 10 stories, medium-agnostic. *** Note, I'm only really tied to #1 ***</p>
+                            <ol type="i">
+                                <li>One Piece</li>
+                                <li>The Lord of the Rings</li>
+                                <li>Halo</li>
+                                <li>Fallout 3</li>
+                                <li>Bioshock</li>
+                                <li>The Last of Us</li>
+                                <li>Westworld</li>
+                                <li>Star Wars</li>
+                                <li>Hamilton</li>
+                                <li>Everything made by Pixar</li>
+                            </ol>
+                        </section>
+                        <section>
+                            <h4>Foods</h4>
+                            <ol type="i">
+                                <li>Sushi</li>
+                                <li>Butter chicken</li>
+                                <li>Birria Tacos</li>
+                                <li>Kalbi</li>
+                                <li>Samgyoepssal</li>
+                                <li>Ramen</li>
+                                <li>Mushroom and sausage tortellini</li>
+                                <li>Mac and cheese</li>
+                                <li>Fried chicken sammie</li>
+                                <li>Golden kiwis</li>
+                            </ol>
+                        </section>
+                        <section>
+                            <h4>Devil Fruits</h4>
+                            <ol type="i">
+                                <li>Pika Pika no Mi (Glint-glint Fruit)</li>
+                                <li>Goro Goro no Mi (Rumble-rumble Fruit)</li>
+                                <li>Tori Tori no Mi, Model: Phoenix (Bird-bird Fruit, Model: Phoenix)</li>
+                                <li>Magu Magu no Mi (Magma-magma Fruit</li>
+                                <li>Zushi Zushi no Mi (Press-press Fruit)</li>
+                                <li>Ito Ito no Mi (String-string Fruit)</li>
+                                <li>Ope Ope No Mi (Op-op Fruit)</li>
+                                <li>Hie Hie no Mi (Chilly-chilly Fruit)</li>
+                                <li>Suna Suna no Mi (Sand-sand Fruit)</li>
+                                <li>Soru Soru no Mi (Soul-soul Fruit)</li>
+                            </ol>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <section class="content" id="quizzes">
+            <h3>Game Area!</h3>
+            <div id="quiz1">
+                <h4>Guessing Game #1 (lab 02 without reading the directions...)</h3>
+                <button id="game" onclick="switchGameState()">Press Me to Take a Little Quiz</button>
+            </div>
+            <div id="quiz2">
+                <h4>Guessing Game v2 (lab 03)</h3>
+                <button id="game2" onclick="playGameFull()">Press Me to Take a Little Quiz</button>
+            </div>
+        </section>
+        <section  class="content" id="canvases">
+            <div class="graphics" id="clock">
+                <canvas id="clock-hands" width="300px" height="300px"></canvas>
+                <canvas id="clock-face" width="300px" height="300px"></canvas>
+            </div>
+            <div class="graphics" id="bounce">
+                <canvas id="bounce-ball" width="600px" height="300px"></canvas>
+                <canvas id="bounce-bg" width="600px" height="300px"></canvas>
+            </div>
+            <div class="graphics" id="pong">
+                <canvas id="pong-obj" width="600px" height="300px"></canvas>
+                <canvas id="pong-bg" width="600px" height="300px"></canvas>
+            </div>
+            <!-- <div class="graphics">
+                <canvas id="canvas-2" width="800px" height="300px"></canvas>
+            </div> -->
+        </section>
+    </main>
+    <footer>
+        <section>
+            <h3>Contact</h3>
+            <ul>
+                <li>Cell Phone: +1 (203) 524-0550</li>
+                <li>Email: <a href="mailto:julian.c.barker@gmail.com">julian.c.barker@gmail.com</a></li>
+                <li>Facebook: <a href="https://www.facebook.com/julian.c.barker">/julian.c.barker</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/julian-c-barker/">/julian-c-barker</a></li>
+                <li>GitHub: <a href="https://github.com/julian-barker">/julian-barker</a></li>
+            </ul>
+        </section>
+        @julian-barker
+    </footer>
+</body>
+</html>
