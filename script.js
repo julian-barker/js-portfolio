@@ -1,9 +1,14 @@
 'use strict';
 
 // declare shortcut function
-function $(x) {
-  return document.getElementById(x);
-}
+function $(selector) { return document.querySelector(selector) }
+
+function byId(id) { return document.getElementById(id) }
+
+function _(tag) { return document.createElement(tag) }
+
+
+byId('ld-switch').addEventListener('click', lightDark);
 
 // scroll to top on reload
 window.onbeforeunload = function () {
@@ -23,6 +28,15 @@ window.onload = function() {
 
 
 
+function lightDark() {
+  const page = $('html');
+  page.classList.toggle('dark');
+
+  const backdrop = $('.bg-filter');
+  backdrop.classList.toggle('dark');
+}
+
+
 
 // greet user upon visiting the site
 function greet() {
@@ -31,7 +45,7 @@ function greet() {
     user = prompt('C\'mon, just tell me.');
   }
   console.log('Name: ' + user);
-  const block = $('user');
+  const block = byId('user');
   block.innerHTML += `<b>${user}</b>`;
   alert(`Welcome, ${user}!`);
 }
@@ -62,7 +76,7 @@ function switchGameState() {
 }
 
 function loadGame() {
-  const space = $(mcg.space);
+  const space = byId(mcg.space);
   console.log(space);
   mcg.state = 'mcg-loaded';
   let hiddenOption = '<option value="coding">Coding!</option>';
@@ -123,8 +137,8 @@ function loadGame() {
       </ul>
       <button id="submit-game" onclick="switchGameState()">Let's see how well you did...</button>
   </div>`;
-  if($('game')) {
-    $('game').remove();
+  if(byId('game')) {
+    byId('game').remove();
   }
   space.innerHTML += newContent;
 }
@@ -132,24 +146,24 @@ function loadGame() {
 
 
 function resetGame() {
-  $(mcg.state).remove();
+  byId(mcg.state).remove();
   loadGame();
 }
 
 
 
 function showAnswers() {
-  const space = $(mcg.space);
+  const space = byId(mcg.space);
   const currState = mcg.state;
   const answers = ['squirtle', 'dog', '13', 'sushi', 'coding'];
 
   let sum = 0;
   let responses = [];
-  let a1 = $('q1').value;
-  let a2 = $('q2').value;
-  let a3 = $('q3').value;
-  let a4 = $('q4').value;
-  let a5 = $('q5').value;
+  let a1 = byId('q1').value;
+  let a2 = byId('q2').value;
+  let a3 = byId('q3').value;
+  let a4 = byId('q4').value;
+  let a5 = byId('q5').value;
   let b = '';
   let newContent =
   `<div id="${mcg.state}">
@@ -178,7 +192,7 @@ function showAnswers() {
   mcg.state = 'mcg-answers';
 
   for (let i = 0; i < 5; i++) {
-    responses[i] = $(`q${i+1}`).value;
+    responses[i] = byId(`q${i+1}`).value;
     if (responses[i] === answers[i]) {
       sum++;
     }
@@ -190,7 +204,7 @@ function showAnswers() {
     b = '';
   }
 
-  $(currState).remove();
+  byId(currState).remove();
   space.innerHTML += newContent;
   mcg.firstTry = false;
 }
@@ -348,8 +362,8 @@ function playGame4() {
 
 // draw an analog clock
 function drawClock() {
-  const can = $('clock-face');
-  const canHands = $('clock-hands');
+  const can = byId('clock-face');
+  const canHands = byId('clock-hands');
   const ctx = can.getContext('2d');
   const ctxHands = canHands.getContext('2d');
 
@@ -473,9 +487,9 @@ function drawClockHand(ctx, ang, rad, hand) {
 
 // make a bouncing ball
 function drawBounce() {
-  const bgCan = $('bounce-bg');
+  const bgCan = byId('bounce-bg');
   const bgCtx = bgCan.getContext('2d');
-  const ballCan = $('bounce-ball');
+  const ballCan = byId('bounce-ball');
   const ballCtx = ballCan.getContext('2d');
   const rad = 15;
   const groundLevel = 60;
@@ -527,8 +541,8 @@ function drawBounceBall(can, ctx, ground, rad) {
 
 // make a very basic pong game
 function pongGame() {
-  const bgCanvas = $('pong-bg');
-  const objCanvas = $('pong-obj');
+  const bgCanvas = byId('pong-bg');
+  const objCanvas = byId('pong-obj');
   const bgCtx = bgCanvas.getContext('2d');
   const objCtx = objCanvas.getContext('2d');
   const score = {
@@ -571,7 +585,7 @@ function updateScore(can, ctx, score) {
 
 // draw some random stuff
 function drawTest() {
-  let can = $('canvas-2');
+  let can = byId('canvas-2');
   let ctx = can.getContext('2d');
   let gradient = ctx.createLinearGradient(0, 0, 800, 300);
 
