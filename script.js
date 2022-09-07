@@ -18,13 +18,9 @@ window.onbeforeunload = function () {
 let user;
 // ensure content exists to insert into
 window.onload = function() {
-  // greet();
   drawClock();
   drawBounce();
-  //drawTest();
-  // playGameFull();
 };
-
 
 
 
@@ -35,22 +31,6 @@ function lightDark() {
   const backdrop = $('.bg-filter');
   backdrop.classList.toggle('dark');
 }
-
-
-
-// greet user upon visiting the site
-function greet() {
-  user = prompt('Please tell me your name.');
-  while(!user) {
-    user = prompt('C\'mon, just tell me.');
-  }
-  console.log('Name: ' + user);
-  const block = byId('user');
-  block.innerHTML += `<b>${user}</b>`;
-  alert(`Welcome, ${user}!`);
-}
-
-
 
 
 
@@ -207,153 +187,6 @@ function showAnswers() {
   byId(currState).remove();
   space.innerHTML += newContent;
   mcg.firstTry = false;
-}
-
-
-
-
-
-// second implementation of 7-question quiz using functions and starting on button press
-function playGameFull() {
-  let score1 = playGame2();
-  let score2 = playGame3();
-  let score3 = playGame4();
-  let score = score1 + score2 + score3;
-
-  alert(`${user}, your total score is: ${score}/7.`);
-}
-
-
-
-function playGame2() {
-  let questions = [['Do I like Pokemon? (yes/no)', 'yes'], ['Do I have any pets? (yes/no)', 'yes'],
-    ['Do I live on the East Coast? (yes/no)', 'no'], ['Do I play video games? (yes/no)', 'yes'],
-    ['Have I gone skydiving (yes/no)', 'no']];
-  let score = 0;
-  for(let i = 0; i < 5; i++) {
-    let q = '';
-    while (!(q === 'yes' || q === 'no')) {
-      q = prompt(`${questions[i][0]}`);
-      if(typeof q === 'string') {
-        q = q.toLowerCase();
-      }
-    }
-    let correct = (q === questions[i][1]);
-    switch(correct) {
-      case true:
-        console.log(`Question ${i+1}:
-        Your response (${q}) is correct!`);
-        alert('correct!');
-        score++;
-        break;
-      default:
-        console.log(`Question ${i+1}:
-        Your response (${q}) is incorrect...`);
-        alert('Sorry, incorrect');
-    }
-  }
-  let msg = `${user}, you got ${score}/5 correct.`;
-  console.log(msg);
-  alert(msg);
-  return score;
-}
-
-
-
-function playGame3() {
-  let diff = prompt('Input 1, 2, or 3 to play on Easy (1), Medium (2), or Hard (3). Invalid responses will default to Easy.');
-  console.log(diff);
-  let upper = 25;
-  switch(diff) {
-    case '2':
-      upper = 50;
-      break;
-    case '3':
-      upper = 100;
-      break;
-  }
-  let ans = Math.floor(Math.random() * upper + 1);
-  console.log(upper);
-  console.log('diff = ' + diff);
-  for(let i = 0; i < 4; i++) {
-    let guess = parseInt(prompt(`Guess a number between 1 and ${upper}. You have ${4 - i} guesses remaining.`));
-    while(isNaN(guess)) {
-      alert('Only number inputs are valid');
-      guess = parseInt(prompt(`Guess a number between 1 and ${upper}. You have ${4 - i} guesses remaining.`));
-    }
-    if(guess === ans) {
-      alert(`You got it correct! It was ${ans}`);
-      return 1;
-    } else if(guess < 1 || guess > upper) {
-      alert(`Please guess between 1 and ${upper}. You wasted a guess.`);
-    } else if(guess > ans) {
-      alert('Too high!');
-    } else {
-      alert('Too low!');
-    }
-  }
-  alert(`You are out of guesses. The answer was ${ans}. Sorry, better luck next time!`);
-  return 0;
-}
-
-
-
-function playGame4() {
-  let diff = prompt('Input 1, 2, or 3 to play on Easy (1), Medium (2), or Hard (3). Invalid responses will default to Easy.');
-  console.log(diff);
-  let upper = 25;
-  switch(diff) {
-    case '2':
-      upper = 50;
-      break;
-    case '3':
-      upper = 100;
-      break;
-  }
-  let numAnswers = 5;
-  let answers = Array(numAnswers);
-  for (let i = 0; i < numAnswers; i++) {
-    let a;
-    let check = true;
-    do {
-      let exists = false;
-      a = Math.floor(Math.random() * upper + 1);
-      // console.log(a);
-      for (let j = 0; j < numAnswers; j++) {
-        if (a === answers[j]) {
-          exists = true;
-          break;
-        }
-      }
-      check = exists;
-    } while(check);
-    answers[i] = a;
-  }
-  console.log('Upper: ' + upper);
-  // console.log('diff = ' + diff);
-  let maxGuesses = 6;
-  let myGuesses = [];
-  for(let i = 0; i < maxGuesses; i++) {
-    let guess = parseInt(prompt(`Guess a number between 1 and ${upper}. You have ${maxGuesses - i} guesses remaining.`));
-    while(isNaN(guess)) {
-      alert('Only number inputs are valid');
-      guess = parseInt(prompt(`Guess a number between 1 and ${upper}. You have ${maxGuesses - i} guesses remaining.`));
-    }
-    myGuesses.push(guess);
-    if(guess < 1 || guess > upper) {
-      alert(`Please guess between 1 and ${upper}. You wasted a guess.`);
-    } else if(answers.includes(guess)) {
-      alert(`You got it correct! Possible answers were ${answers}
-      You got it in ${i + 1} guesses.`);
-      return 1;
-    } else {
-      alert('Sorry! Not quite');
-    }
-  }
-  alert(`You are out of guesses.Sorry, better luck next time!
-  Your guesses were ${myGuesses}.
-  Possible answers were ${answers}.`);
-  return 0;
 }
 
 
@@ -536,79 +369,3 @@ function drawBounceBall(can, ctx, ground, rad) {
 }
 
 
-
-
-
-// make a very basic pong game
-function pongGame() {
-  const bgCanvas = byId('pong-bg');
-  const objCanvas = byId('pong-obj');
-  const bgCtx = bgCanvas.getContext('2d');
-  const objCtx = objCanvas.getContext('2d');
-  const score = {
-    player: 0,
-    robot: 0
-  }
-
-
-  bgCtx.fillStyle = 'black';
-  bgCtx.fillRect(0, 0, bgCanvas.width, bgCanvas.height);
-
-  while (score.player < 10 && score.robot < 10) {
-    updatePong(objCanvas, objCtx, score);
-  }
-  if (score.player === 10) {
-
-    return;
-  }
-}
-
-
-function updatePong(can, ctx, score) {
-
-
-
-  updateScore(can, ctx);
-}
-
-
-function updateScore(can, ctx, score) {
-
-
-
-  return can, ctx;
-}
-
-
-
-
-
-// draw some random stuff
-function drawTest() {
-  let can = byId('canvas-2');
-  let ctx = can.getContext('2d');
-  let gradient = ctx.createLinearGradient(0, 0, 800, 300);
-
-  gradient.addColorStop(0, 'green');
-  gradient.addColorStop(0.5, 'yellow');
-  gradient.addColorStop(1, 'red');
-
-  ctx.fillStyle = gradient;
-  ctx.textAlign = 'center';
-
-  // ctx.fillRect(200, 200, 400, 50);
-  // ctx.strokeRect(200, 200, 400, 50);
-  ctx.font = ('108px Comic Sans MS');
-  ctx.fillText('OooWeee!!!', can.width/2, can.height/2);
-  ctx.strokeText('OooWeee!!!', can.width/2, can.height/2);
-
-  ctx.beginPath();
-  ctx.strokeStyle = gradient;
-  ctx.lineWidth = 20;
-  ctx.lineCap = 'round';
-  ctx.moveTo(150, 230);
-  for (let i = 0; i < 200; i++) {
-    ctx.lineTo(150 + 2.5*i, Math.sin(i/50*Math.PI)*30 + 230);
-  }
-  ctx.stroke();
-}
