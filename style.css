@@ -39,9 +39,9 @@ body {
 }
 
 @keyframes bg-scroll {
-  0% {background-image: url(./images/site-background-1.png);}
-  50% {background-image: url(./images/site-background-2.png);}
-  100% {background-image: url(./images/site-background-3.png);}
+  0% {background-image: url(./images/site-background-1.jpg);}
+  50% {background-image: url(./images/site-background-2.jpg);}
+  100% {background-image: url(./images/site-background-3.jpg);}
   /* 100% {background-image: url(./images/site-background-3.png);} */
 }
 
