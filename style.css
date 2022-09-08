@@ -282,6 +282,14 @@ main > section:nth-of-type(odd) {
   padding: 8px; 
 }
 
+#quizzes select {
+  margin: 10px 0;
+}
+
+#quizzes button {
+  margin: 20px 0;
+}
+
 #portfolio {
   width: 100%;
 }

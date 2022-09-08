@@ -145,6 +145,23 @@ function showAnswers() {
   let a4 = byId('q4').value;
   let a5 = byId('q5').value;
   let b = '';
+
+  mcg.state = 'mcg-answers';
+
+  for (let i = 0; i < 5; i++) {
+    responses[i] = byId(`q${i+1}`).value;
+    console.log(responses[i], answers[i]);
+    if (responses[i] === answers[i]) {
+      sum++;
+    }
+  }
+
+  if (mcg.firstTry) {
+    b = 'Trick question - it\'s ';
+  } else {
+    b = '';
+  }
+
   let newContent =
   `<div id="${mcg.state}">
       <h4>Answer Time...</h4>
@@ -165,24 +182,10 @@ function showAnswers() {
           <dd>Your Answer: ${a5}</dd>
           <dd>Correct Answer: ${b}${answers[4]}!!!</dd>
       </dl>
+      <br>
       <p>You got ${sum} out of 5 questions right!</p>
       <button id="retake" onclick="switchGameState()">Try again?</button>
   </div>`;
-
-  mcg.state = 'mcg-answers';
-
-  for (let i = 0; i < 5; i++) {
-    responses[i] = byId(`q${i+1}`).value;
-    if (responses[i] === answers[i]) {
-      sum++;
-    }
-  }
-
-  if (mcg.firstTry) {
-    b = 'Trick question - it\'s ';
-  } else {
-    b = '';
-  }
 
   byId(currState).remove();
   space.innerHTML += newContent;
