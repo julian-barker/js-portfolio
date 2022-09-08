@@ -1,5 +1,7 @@
 
 html {
+  /* border: 1px darkred solid; */
+  font-family: 'Trebuchet MS', sans-serif;
   --hdr-ftr-clr: hsla(89, 96%, 47%, 0.95);
   --main-font-col: hsl(200 5% 15%);
   --hf-font-col: hsl(200 5% 15%);
@@ -23,11 +25,6 @@ html.dark {
 }
 
 
-html {
-  /* border: 1px darkred solid; */
-  font-family: 'Trebuchet MS', sans-serif;
-}
-
 body {
   width: 100%;
   min-height: 100vh;
@@ -43,7 +40,6 @@ body {
   0% {background-image: url(./images/site-background-1.jpg);}
   50% {background-image: url(./images/site-background-2.jpg);}
   100% {background-image: url(./images/site-background-3.jpg);}
-  /* 100% {background-image: url(./images/site-background-3.png);} */
 }
 
 .bg-filter {
@@ -136,7 +132,22 @@ dt {
 
 a, a:visited {
   color: var(--a-visit-col);
+
 }
+
+main > section:nth-of-type(even) {
+  margin-left: 10%;
+}
+
+main > section:nth-of-type(odd) {
+  margin-right: 10%;
+}
+
+footer h3, ul {
+  text-align: center;
+}
+
+
 
 .logo {
   margin: 4px;
@@ -156,19 +167,6 @@ a, a:visited {
   border-radius: 50%;
   padding: 0;
 }
-
-/* .logo::before {
-    display:block;
-    content:'';
-    position:absolute;
-    width:100%;
-    height:100%;
-    -moz-box-shadow:inset 0px 0px 8px 4px #fff;
-    -webkit-box-shadow:inset 0px 0px 8px 4px #fff;
-    box-shadow:inset 0px 0px 8px 4px var(--hdr-ftr-clr);
-    padding: 0;
-    border-radius: 50%;
-} */
 
 .nav {
   padding-left: 2px;
@@ -206,6 +204,18 @@ a, a:visited {
 .content {
   margin-top: 60px;
 }
+
+.graphics {
+  border: 2px var(--bdr-clr) solid;
+  background-color: lightgrey;
+  margin: 16px;
+}
+
+.graphics > canvas:not(:last-of-type) {
+  position: absolute;
+}
+
+
 
 #ld-switch {
   position: absolute;
@@ -246,26 +256,6 @@ a, a:visited {
 
 #blurb > * {
   font-size: 1.5rem;
-}
-
-
-
-main > section:nth-of-type(even) {
-  margin-left: 10%;
-}
-
-main > section:nth-of-type(odd) {
-  margin-right: 10%;
-}
-
-#guest {
-  font-style: italic;
-  font-weight: bold;
-}
-
-#guest {
-  margin: 0px;
-  padding: 0px;
 }
 
 #quizzes {
@@ -331,16 +321,3 @@ main > section:nth-of-type(odd) {
   align-items: center; 
 }
 
-.graphics {
-  border: 2px var(--bdr-clr) solid;
-  background-color: lightgrey;
-  margin: 16px;
-}
-
-.graphics > canvas:not(:last-of-type) {
-  position: absolute;
-}
-
-footer h3, ul {
-  text-align: center;
-}
