@@ -1,11 +1,11 @@
 'use strict';
 
 // declare shortcut function
-function $(selector) { return document.querySelector(selector) }
+function $(selector) { return document.querySelector(selector); }
 
-function byId(id) { return document.getElementById(id) }
+function byId(id) { return document.getElementById(id); }
 
-function _(tag) { return document.createElement(tag) }
+function _(tag) { return document.createElement(tag); }
 
 
 byId('ld-switch').addEventListener('click', lightDark);
@@ -15,7 +15,6 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
-let user;
 // ensure content exists to insert into
 window.onload = function() {
   drawClock();
@@ -27,9 +26,6 @@ window.onload = function() {
 function lightDark() {
   const page = $('html');
   page.classList.toggle('dark');
-
-  const backdrop = $('.bg-filter');
-  backdrop.classList.toggle('dark');
 }
 
 

@@ -19,6 +19,7 @@ html.dark {
   --ld-accent-col: hsl(89 96% 47%);
   --a-visit-col: hsl(60 100% 50%);
   --img-brt: 80%;
+  --bg-filter: invert(80%);
 }
 
 
@@ -50,10 +51,7 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: -1;
-}
-
-.bg-filter.dark {
-  backdrop-filter: invert(80%);
+  backdrop-filter: var(--bg-filter);
 }
 
 header, footer {
