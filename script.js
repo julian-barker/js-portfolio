@@ -2,9 +2,7 @@
 
 // declare shortcut function
 function $(selector) { return document.querySelector(selector); }
-
 function byId(id) { return document.getElementById(id); }
-
 // eslint-disable-next-line no-unused-vars
 function _(tag) { return document.createElement(tag); }
 
@@ -21,7 +19,6 @@ window.onload = function() {
   drawClock();
   drawBounce();
 };
-
 
 
 function lightDark() {
