@@ -37,6 +37,8 @@ html.dark {
 
 
 body {
+  margin: 0;
+  padding: 0;
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -79,7 +81,7 @@ header {
 }
 
 main {
-  margin-top: 100px;
+  margin-top: 80px;
   padding: 48px;
   width: 100%;
   display: flex;
@@ -88,16 +90,18 @@ main {
 }
 
 footer {
+  padding: 2vh 0 5vh 0;
   background-color: var(--hdr-ftr-clr);
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
 }
 
 main > section {
   width: 80%;
   max-width: 80%;
-  border-radius: 6px;
+  border-radius: 12px;
   padding: 24px;
   background-color: rgba(162, 162, 162, 0.85);
 }
@@ -210,16 +214,33 @@ footer h3, ul {
 }
 
 .hero {
+  margin-top: 70px;
   padding-right: 4rem;
+  width: 100%;
+  min-height: 85vh;
   display: flex;
-  align-items: center;  
+  flex-flow: row-reverse wrap;
+  justify-content: space-evenly;
+}
+
+.hero-text {
+  margin: 5vh 0;
+  padding-left: 5vw;
+  min-width: 30vw;
+  max-width: 40vw;
+  flex: 1 1 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 3rem;
 }
 
 .hero-graphics {
+  align-self: center;
+  rotate: -7deg;
   display: grid;
   grid-template-columns: repeat(5, 2rem) 40rem repeat(5, 2rem);
   grid-template-rows: repeat(5, 3rem) 10rem repeat(5, 3rem);
-  rotate: -7deg;
   place-items: start end;
 }
 
@@ -245,7 +266,7 @@ footer h3, ul {
 
 .hero-graphics > *:nth-child(2) {
   grid-column: 4/10;
-  grid-row: 2/8;
+  grid-row: 3/9;
 }
 
 .hero-graphics > *:nth-child(3) {
@@ -255,6 +276,51 @@ footer h3, ul {
 
 .content {
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 2rem;
+}
+
+.content > h3 {
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: wrap;
+  gap: 3rem;
+}
+
+.card {
+  border-radius: 16px;
+  padding-top: 1rem;
+  position: relative;
+  flex: 0 1 30%;
+  width: minmax(20%, 45%);
+  box-shadow: 4px 4px 6px 0 gray;
+  background-color: rgba(242, 231, 231, 0.794);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-button {
+  margin: 0;
+  border-radius: 0 0 14px 14px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(118, 118, 240);
+  color: white;
+  font-size: 24px;
 }
 
 .graphics {
@@ -292,7 +358,7 @@ footer h3, ul {
 }
 
 #blurb {
-  margin: 10vh 0 5vh 5%;
+  margin-left: 5%;
   border-radius: 6px;
   padding: 24px 48px 24px 24px;
   width: 85%;
@@ -303,6 +369,19 @@ footer h3, ul {
 
 #blurb > * {
   font-size: 1.5rem;
+}
+
+#bio {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#bio img {
+  margin: 0 auto;
+  width: 90%;
+  align-self: center;
+  border-radius: 8px;
 }
 
 #quizzes {
