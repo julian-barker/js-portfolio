@@ -12,6 +12,8 @@
 
 html {
   /* border: 1px darkred solid; */
+  margin: 0;
+  padding: 0;
   font-family: 'Fira', monospace;
   font-weight: 700;
   font-size: 20px;
@@ -22,7 +24,7 @@ html {
   --section-bg: rgba(215, 215, 215, 0.777);
   --card-bg: rgba(255, 240, 253, 0.728);
   --accent-font-col: hsl(30 96% 51%);
-  --ld-col: rgb(255, 54, 235);
+  --ld-col: hsla(283, 100%, 67%, 0.95);
   --ld-accent-col: hsl(240 25% 15%);
   --a-visit-col: hsl(270 100% 18%);
   --img-brt: 100%;
@@ -36,8 +38,8 @@ html.dark {
   --section-bg: rgba(117, 117, 117, 0.777);
   --card-bg: rgba(56, 12, 49, 0.728);
   --ld-col: hsl(240 25% 15%);
-  --ld-accent-col: rgb(255, 54, 235);
-  --a-visit-col: hsl(60 100% 50%);
+  --ld-accent-col: hsla(283, 100%, 67%, 0.95);
+  --a-visit-col: rgb(196, 255, 100);
   --img-brt: 80%;
   --bg-filter: invert(80%);
 }
@@ -54,6 +56,7 @@ body {
   align-items: center;
   background: url(./images/site-background-1.jpg) fixed center / cover;
   animation: bg-change 15s ease-in-out infinite alternate;
+  overflow-x: hidden;
 }
 
 @keyframes bg-change {
@@ -66,14 +69,18 @@ body {
 
 .bg-filter {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
   z-index: -1;
   backdrop-filter: var(--bg-filter);
 }
 
 header, footer {
   width: 100%;
+  max-width: 100%;
 }
 
 header {
@@ -120,19 +127,20 @@ h1 {
   align-self: flex-start;
   color: rgb(237, 237, 237);
   font-size: 4rem;
-  font-weight: 600;
   text-shadow: 0px 0px 8px #000, 4px 4px 16px #000A;
+}
+
+h2 {
+  font-size: 2rem;
 }
 
 h3 {
   font-size: 1.4rem;
-  font-weight: 600;
   margin-bottom: 16px;
 }
 
 h4 {
   font-size: 1.2rem;
-  font-weight: 600;
   margin-bottom: 12px;
 }
 
@@ -164,7 +172,7 @@ main > section:nth-of-type(odd) {
   margin-right: 10%;
 }
 
-footer h3, ul {
+footer {
   text-align: center;
 }
 
@@ -222,7 +230,7 @@ footer h3, ul {
 }
 
 .hero {
-  padding-right: 4rem;
+  padding-right: 2rem;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -363,10 +371,11 @@ footer h3, ul {
   border-radius: 50%;
   padding: 0;
   position: absolute;
+  z-index: 1;
   height: 50px;
   width: 50px;
-  top: 115%;
-  right: 10px;
+  top: 80px;
+  right: 5vh;
   background-color: var(--ld-col);
   color: var(--ld-accent-col);
   transition: all 250ms ease-in-out;

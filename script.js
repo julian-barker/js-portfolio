@@ -7,7 +7,25 @@ function byId(id) { return document.getElementById(id); }
 function _(tag) { return document.createElement(tag); }
 
 
-byId('ld-switch').addEventListener('click', lightDark);
+// dark-mode (persistent)
+$('#ld-switch').addEventListener('click', lightDark);
+
+let darkMode = localStorage['darkMode'];
+console.log('darkmode = ' + darkMode);
+if (darkMode !== undefined) {
+  darkMode = JSON.parse(darkMode);
+  console.log(darkMode);
+  if (darkMode === true) {
+    $('html').classList.add('dark');
+  }
+}
+
+function lightDark() {
+  $('html').classList.toggle('dark');
+  darkMode = !darkMode; // toggle true/false
+  localStorage['darkMode'] = JSON.stringify(darkMode);
+}
+
 
 // scroll to top on reload
 window.onbeforeunload = function () {
@@ -19,13 +37,6 @@ window.onload = function() {
   drawClock();
   drawBounce();
 };
-
-
-function lightDark() {
-  const page = $('html');
-  page.classList.toggle('dark');
-}
-
 
 
 // Multiple choice quiz taking advantage of DOM manipulation
